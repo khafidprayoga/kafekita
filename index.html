@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KafeKita</title>
+    <link rel="stylesheet" href="/src/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navbar shadow-lg bg-neutral text-neutral-content rounded-none">
+      <div class="flex-1 hidden px-2 ml-10 lg:flex">
+        <span class="text-2xl font-brand font-semibold">KafeKita</span>
+      </div>
+      <div class="flex-none">
+        <button class="btn btn-md rounded-full">Connect</button>
+      </div>
+      <div class="flex-none mr-10 ml-5">
+        <div class="avatar">
+          <div id="avatar-container" class="w-10 h-10 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ethereum-blockies@0.1.1/blockies.min.js"></script>
+    <script src="src/avatar.js"></script>
+  </body>
+</html>

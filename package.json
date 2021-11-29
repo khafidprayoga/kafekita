@@ -1,0 +1,21 @@
+{
+  "name": "kafekita",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": "git@github.com:khafidprayoga/kafekita.git",
+  "author": "Khafid Prayoga <khafidp@pm.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "daisyui": "^1.16.2",
+    "ethereum-blockies": "^0.1.1"
+  }
+}
