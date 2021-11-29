@@ -13,20 +13,175 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="hidden xl:block">
     <div class="navbar shadow-lg bg-neutral text-neutral-content rounded-none">
-      <div class="flex-1 hidden px-2 ml-10 lg:flex">
-        <span class="text-2xl font-brand font-semibold">KafeKita</span>
+      <div class="flex-1 px-2 ml-10">
+        <span class="font-brand text-2xl font-medium">KafeKita</span>
       </div>
-      <div class="flex-none">
+      <div class="flex-none hidden sm:block">
         <button class="btn btn-md rounded-full">Connect</button>
       </div>
-      <div class="flex-none mr-10 ml-5">
+      <div class="flex-none mr-10 ml-5 hidden sm:block">
         <div class="avatar">
           <div id="avatar-container" class="w-10 h-10 rounded-full"></div>
         </div>
       </div>
     </div>
+    <div class="flex alert rounded-xl w-/5 mx-5 my-5">
+      <div class="flex-shrink-0">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="#009688"
+          class="flex-shrink-0 w-6 h-6 mx-2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+          ></path>
+        </svg>
+      </div>
+      <label class="flex-grow"
+        ><p>Connect your wallet first before use this dApps.</p></label
+      >
+    </div>
+    <div class="grid grid-cols-3 gap-10 mx-10 my-10">
+      <div class="card bordered rounded-lg">
+        <figure>
+          <img
+            class="w-full object-center object-cover max-h-[350px]"
+            src="https://images.unsplash.com/photo-1592483648228-b35146a4330c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+          />
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">Strawberry</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
+            impedit eius earum ipsam rerum alias, aspernatur quia quaerat id?
+            Porro veniam cum ex non ipsa architecto aliquam quis magni tempore.
+          </p>
+        </div>
+        <div class="card-action">
+          <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            Buy
+          </button>
+        </div>
+      </div>
+      <div class="card bordered rounded-lg">
+        <figure>
+          <img
+            class="w-full object-center object-cover max-h-[350px]"
+            src="https://images.unsplash.com/photo-1582816421499-4ad9e25ebe4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW50ZWF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          />
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">Greentea</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
+            nesciunt incidunt magni sequi quas! Iure aliquid temporibus
+            similique necessitatibus dignissimos quo nobis sapiente blanditiis
+            repudiandae quisquam. Et dolorum molestias obcaecati.
+          </p>
+        </div>
+        <div class="card-action">
+          <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            Buy
+          </button>
+        </div>
+      </div>
+      <div class="card bordered rounded-lg">
+        <figure>
+          <img
+            class="w-full object-center object-cover max-h-[350px]"
+            src="https://images.unsplash.com/photo-1597676345712-ba4536073513?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80"
+          />
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">Mocha</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+            id iure placeat recusandae earum soluta voluptate unde quibusdam,
+            voluptas, quam odit reiciendis, magni perspiciatis voluptatum
+            temporibus at? Assumenda, dolor quasi.
+          </p>
+        </div>
+        <div class="card-action">
+          <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            Buy
+          </button>
+        </div>
+      </div>
+      <div class="card bordered rounded-lg">
+        <figure>
+          <img
+            class="w-full object-center object-cover max-h-[350px]"
+            src="https://images.unsplash.com/photo-1517448931760-9bf4414148c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          />
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">Milky</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+            id iure placeat recusandae earum soluta voluptate unde quibusdam,
+            voluptas, quam odit reiciendis, magni perspiciatis voluptatum
+            temporibus at? Assumenda, dolor quasi.
+          </p>
+        </div>
+        <div class="card-action">
+          <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            Buy
+          </button>
+        </div>
+      </div>
+      <div class="card bordered rounded-lg">
+        <figure>
+          <img
+            class="w-full object-center object-cover max-h-[350px]"
+            src="https://images.unsplash.com/photo-1604085792782-8d92f276d7d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          />
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">Avocado</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+            id iure placeat recusandae earum soluta voluptate unde quibusdam,
+            voluptas, quam odit reiciendis, magni perspiciatis voluptatum
+            temporibus at? Assumenda, dolor quasi.
+          </p>
+        </div>
+        <div class="card-action">
+          <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            Buy
+          </button>
+        </div>
+      </div>
+      <div class="card bordered rounded-lg">
+        <figure>
+          <img
+            class="w-full object-center object-cover max-h-[350px]"
+            src="https://images.unsplash.com/photo-1630424836013-00e25bfe1849?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          />
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">Orange</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+            id iure placeat recusandae earum soluta voluptate unde quibusdam,
+            voluptas, quam odit reiciendis, magni perspiciatis voluptatum
+            temporibus at? Assumenda, dolor quasi.
+          </p>
+        </div>
+        <div class="card-action">
+          <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            Buy
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/ethereum-blockies@0.1.1/blockies.min.js"></script>
     <script src="src/avatar.js"></script>
   </body>
