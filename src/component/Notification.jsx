@@ -3,14 +3,14 @@ import React from "react";
 class Notification extends React.Component{
   render(){
     return (
-      <div class="flex alert rounded-xl w-/5 mx-5 my-5 shadow-lg drop-shadow-lg">
-      <div class="flex-shrink-0">
+      <div className="flex alert rounded-xl w-/5 mx-5 my-5 shadow-lg drop-shadow-lg">
+      <div className="flex-shrink-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke="#009688"
-          class="flex-shrink-0 w-6 h-6 mx-2"
+          className="flex-shrink-0 w-6 h-6 mx-2"
         >
           <path
             stroke-linecap="round"
@@ -20,7 +20,7 @@ class Notification extends React.Component{
           ></path>
         </svg>
       </div>
-      <label class="flex-grow"
+      <label className="flex-grow"
         ><p>Connect your wallet first before use this dApps.</p></label
       >
     </div>
