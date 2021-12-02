@@ -1,9 +1,20 @@
-const App = () => {
-  return (
-    <div className="font-bold text-4xl m-5 text-red-600 underline font-brand">
-      Hello World
-    </div>
-  );
-};
+import React, {Fragment} from "react";
+import Nav from "./component/Nav";
+import Notification from "./component/Notification";
+import Products from "./component/Products";
+import DeprecatedBox from "./component/DeprecatedBox";
+
+class App extends React.Component {
+    render(){
+      return (
+        <Fragment>
+          <Nav />
+          <Notification />
+          <Products />
+          <DeprecatedBox/>
+        </Fragment>
+      )
+    }
+}
 
 export default App;
