@@ -1,4 +1,5 @@
 import React from 'react';
+import BuyModal from './BuyModal';
 
 class Products extends React.Component {
   render() {
@@ -57,11 +58,13 @@ class Products extends React.Component {
               </p>
             </div>
             <div className="card-action">
-              <button className="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+              <a href="#buy-modal" className="btn btn-md btn-outline rounded-sm mx-10 mb-10">
                 Buy
-              </button>
+              </a>
+              <BuyModal />
             </div>
           </div>
+          
         </div>
       </div>
     );
