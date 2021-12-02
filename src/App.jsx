@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import Nav from './component/Nav';
-import Notification from './component/Notification';
-import Products from './component/Products';
-import DeprecatedBox from './component/DeprecatedBox';
+import Nav from './components/Nav';
+import Notification from './components/Notification';
+import Products from './components/Products';
+import DeprecatedBox from './components/DeprecatedBox';
 
 class App extends React.Component {
   render() {
