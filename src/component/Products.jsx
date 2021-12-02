@@ -47,12 +47,14 @@ class Products extends React.Component {
             <figure>
               <img
                 className="w-full object-center object-cover h-[350px]"
-                src="https://images.unsplash.com/photo-1592483648228-b35146a4330c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+                src="https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68"
               />
             </figure>
             <div className="card-body">
-              <h3 className="card-title">Strawberry</h3>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              <h3 className="card-title">Avocado</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, ipsam tempore earum explicabo expedita officiis saepe dolor minima quis hic maiores ad corporis optio dolores, quasi quaerat modi quia veritatis.
+              </p>
             </div>
             <div className="card-action">
               <button className="btn btn-md btn-outline rounded-sm mx-10 mb-10">
