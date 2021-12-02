@@ -26,7 +26,7 @@ class Nav extends React.Component {
         </div>
         <div className="flex-none mr-10 ml-5 hidden sm:block">
           <div className="avatar">
-            <div id="avatar-container" className="w-10 h-10 rounded-full" />
+            <div id="avatar-container" className="w-10 h-10 mask mask-circle" />
           </div>
         </div>
       </div>
