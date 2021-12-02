@@ -1,0 +1,4 @@
+dist/
+src/contracts/
+node_modules/
+package.json
