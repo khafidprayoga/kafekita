@@ -3,58 +3,66 @@ import "ethereum-blockies/blockies";
 
 const products = [
   {
-    name: "Avocado",
+    id: 0,
+    name: "Lemonice",
     imageURL:
-      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
-    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
-    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
-    quas natus incidunt minima repudiandae, autem eaque quae aperiam
-    consequatur?`,
+      "https://bafybeibhyjof4pkotj6ipmoidjxeip7xupm7g6zl3r6mcmclcm7zu2y4te.ipfs.dweb.link/1638417959956-937-7b483f5889d128e8",
+    description: `Fit for you who are thirsty after exercise, with a blend of ice from Antarctica + Lemonice.`,
     price: 3,
     sold: 10,
   },
   {
-    name: "Avocado",
+    id: 1,
+    name: "Javanesso",
     imageURL:
-      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
-    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
-    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
-    quas natus incidunt minima repudiandae, autem eaque quae aperiam
-    consequatur?`,
-    price: 3,
+      "https://bafybeieuqiteflq5awbur3xx47yek5idqyjxzjsaqdenhgsl7ratttvyr4.ipfs.dweb.link/1638418018770-937-8bf78859b80b03aa",
+    description: `Have you traveled to Borobudur temple?`,
+    price: 5,
     sold: 10,
   },
   {
-    name: "Avocado",
+    id: 2,
+    name: "Fruizzy",
     imageURL:
-      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
-    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
-    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
-    quas natus incidunt minima repudiandae, autem eaque quae aperiam
-    consequatur?`,
-    price: 3,
+      "https://bafybeiawbzvorjmc5yqxjndpdf4rulh4ivnxj57df3rrhgayknojyrjywa.ipfs.dweb.link/1638418056598-937-818b86762564eb97",
+    description: `Have you traveled to Borobudur temple?`,
+    price: 5,
     sold: 10,
   },
   {
-    name: "Avocado",
+    id: 3,
+    name: "Monggo",
     imageURL:
-      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
-    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
-    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
-    quas natus incidunt minima repudiandae, autem eaque quae aperiam
-    consequatur?`,
-    price: 3,
-    sold: 10,
+      "https://bafybeig2fvkrdbwv2dlyxhhwawwge3d4qonfn4zaggbpc4azyyomm3woeu.ipfs.dweb.link/1638418095735-937-f11e1115bd1650dd",
+    description: `Tropical fruit`,
+    price: 4,
+    sold: 0,
   },
   {
-    name: "Avocado",
+    id: 4,
+    name: "YogHurt",
+    imageURL:
+      "https://bafybeicbbtgi2wkpxxeskjd4lbq4a4yqbc5pc4dsiuf5lftyfpfdacl3xi.ipfs.dweb.link/1638418157261-937-a926364639685a8e",
+    description: `How about your childhood?`,
+    price: 5,
+    sold: 100,
+  },
+  {
+    id: 5,
+    name: "Chocolatey",
+    imageURL:
+      "https://bafybeieqkpi4zl4tsp2qhnze25eploz3dbypijegvngx3mkhw223n7o3t4.ipfs.dweb.link/1638418211376-937-a18b4f644f609757",
+    description: `I think, its a package manager for Windows.`,
+    price: 1,
+    sold: 20,
+  },
+  {
+    id: 6,
+    name: "Avoicado",
     imageURL:
       "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
-    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
-    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
-    quas natus incidunt minima repudiandae, autem eaque quae aperiam
-    consequatur?`,
-    price: 3,
+    description: `don't run away from the problem`,
+    price: 2,
     sold: 10,
   },
 ];
@@ -119,7 +127,7 @@ const productTemplate = (_product) => {
     />
   </figure>
   <div class="card-body">
-    <h3 class="card-title">Strawberry</h3>
+    <h3 class="card-title">${_product.name}</h3>
     <p>${_product.description}</p>
   </div>
   <div class="card-action">
