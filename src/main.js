@@ -13,6 +13,50 @@ const products = [
     price: 3,
     sold: 10,
   },
+  {
+    name: "Avocado",
+    imageURL:
+      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
+    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
+    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
+    quas natus incidunt minima repudiandae, autem eaque quae aperiam
+    consequatur?`,
+    price: 3,
+    sold: 10,
+  },
+  {
+    name: "Avocado",
+    imageURL:
+      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
+    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
+    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
+    quas natus incidunt minima repudiandae, autem eaque quae aperiam
+    consequatur?`,
+    price: 3,
+    sold: 10,
+  },
+  {
+    name: "Avocado",
+    imageURL:
+      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
+    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
+    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
+    quas natus incidunt minima repudiandae, autem eaque quae aperiam
+    consequatur?`,
+    price: 3,
+    sold: 10,
+  },
+  {
+    name: "Avocado",
+    imageURL:
+      "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
+    description: ` Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime odio ex
+    distinctio sequi blanditiis? Velit voluptatibus culpa nihil, quis libero
+    quas natus incidunt minima repudiandae, autem eaque quae aperiam
+    consequatur?`,
+    price: 3,
+    sold: 10,
+  },
 ];
 
 const getBalance = () => {
@@ -25,12 +69,10 @@ const getTX = () => {
 const renderDrinks = () => {
   document.querySelector("#marketplace").innerHTML = "";
   products.forEach((_product) => {
-    products.forEach((_product) => {
-      const newDiv = document.createElement("div");
-      newDiv.className = "relative card rounded-lg shadow-xl hover:shadow-2xl";
-      newDiv.innerHTML = productTemplate(_product);
-      document.getElementById("marketplace").appendChild(newDiv);
-    });
+    const newDiv = document.createElement("div");
+    newDiv.className = "relative card rounded-lg shadow-xl hover:shadow-2xl";
+    newDiv.innerHTML = productTemplate(_product);
+    document.getElementById("marketplace").appendChild(newDiv);
   });
 };
 
