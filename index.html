@@ -72,7 +72,7 @@
               bg-gray-200
               px-3
               py-3
-              rounded-lg
+              rounded-none
               top-0
               left-0
               ml-0
@@ -103,17 +103,40 @@
           <figure>
             <img
               class="w-full object-center object-cover h-[350px]"
-              src="https://images.unsplash.com/photo-1592483648228-b35146a4330c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+              src="https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68"
             />
           </figure>
           <div class="card-body">
             <h3 class="card-title">Strawberry</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+              odio ex distinctio sequi blanditiis? Velit voluptatibus culpa
+              nihil, quis libero quas natus incidunt minima repudiandae, autem
+              eaque quae aperiam consequatur?
+            </p>
           </div>
           <div class="card-action">
-            <button class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+            <a
+              href="#my-modal"
+              class="btn btn-md btn-outline rounded-sm mx-10 mb-10"
+            >
               Buy
-            </button>
+            </a>
+            <div id="my-modal" class="modal">
+              <div class="modal-box">
+                <div class="form-control">
+                  <input
+                    type="number"
+                    placeholder="quantity"
+                    class="input input-lg input-bordered"
+                  />
+                </div>
+                <div class="modal-action">
+                  <a href="#" class="btn btn-success">Buy</a>
+                  <a href="#" class="btn btn-outline">Cancel</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
