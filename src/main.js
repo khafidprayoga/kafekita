@@ -4,7 +4,6 @@ import "lazysizes";
 
 const products = [
   {
-    id: 0,
     name: "Lemonice",
     imageURL:
       "https://bafybeibhyjof4pkotj6ipmoidjxeip7xupm7g6zl3r6mcmclcm7zu2y4te.ipfs.dweb.link/1638417959956-937-7b483f5889d128e8",
@@ -13,7 +12,6 @@ const products = [
     sold: 10,
   },
   {
-    id: 1,
     name: "Javanesso",
     imageURL:
       "https://bafybeieuqiteflq5awbur3xx47yek5idqyjxzjsaqdenhgsl7ratttvyr4.ipfs.dweb.link/1638418018770-937-8bf78859b80b03aa",
@@ -22,7 +20,6 @@ const products = [
     sold: 10,
   },
   {
-    id: 2,
     name: "Fruizzy",
     imageURL:
       "https://bafybeiawbzvorjmc5yqxjndpdf4rulh4ivnxj57df3rrhgayknojyrjywa.ipfs.dweb.link/1638418056598-937-818b86762564eb97",
@@ -31,7 +28,6 @@ const products = [
     sold: 10,
   },
   {
-    id: 3,
     name: "Monggo",
     imageURL:
       "https://bafybeig2fvkrdbwv2dlyxhhwawwge3d4qonfn4zaggbpc4azyyomm3woeu.ipfs.dweb.link/1638418095735-937-f11e1115bd1650dd",
@@ -40,7 +36,6 @@ const products = [
     sold: 0,
   },
   {
-    id: 4,
     name: "YogHurt",
     imageURL:
       "https://bafybeicbbtgi2wkpxxeskjd4lbq4a4yqbc5pc4dsiuf5lftyfpfdacl3xi.ipfs.dweb.link/1638418157261-937-a926364639685a8e",
@@ -49,7 +44,6 @@ const products = [
     sold: 100,
   },
   {
-    id: 5,
     name: "Chocolatey",
     imageURL:
       "https://bafybeieqkpi4zl4tsp2qhnze25eploz3dbypijegvngx3mkhw223n7o3t4.ipfs.dweb.link/1638418211376-937-a18b4f644f609757",
@@ -58,7 +52,6 @@ const products = [
     sold: 20,
   },
   {
-    id: 6,
     name: "Avoicado",
     imageURL:
       "https://bafybeia6db4cnwrv5ox3uo3wco4gyqi7xivg2dg5gon2gvzatj32maek2a.ipfs.dweb.link/1638418264770-937-c14adf9363dd0d68",
@@ -80,15 +73,15 @@ const notification = (_msg) => {
 };
 const renderDrinks = () => {
   document.querySelector("#marketplace").innerHTML = "";
-  products.forEach((_product) => {
+  products.forEach((_product, index) => {
     const newDiv = document.createElement("div");
     newDiv.className = "relative card rounded-lg shadow-xl hover:shadow-2xl";
-    newDiv.innerHTML = productTemplate(_product);
+    newDiv.innerHTML = productTemplate(_product, index);
     document.getElementById("marketplace").appendChild(newDiv);
   });
 };
 
-const productTemplate = (_product) => {
+const productTemplate = (_product, _id) => {
   return `
   <div
     class="
@@ -136,20 +129,21 @@ const productTemplate = (_product) => {
     <p>${_product.description}</p>
   </div>
   <div class="card-action">
-    <a href="#product-${_product.id}" class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+    <a href="#product-${_id}" class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
       Buy
     </a>
-    <div id="product-${_product.id}" class="modal">
+    <div id="product-${_id}" class="modal">
       <div class="modal-box">
         <div class="form-control">
           <input
-            type="number"
+            id="product-qty-${_id}"
+            type="number" min="1" max="10" value="1"
             placeholder="quantity"
             class="input input-lg input-bordered"
           />
         </div>
         <div class="modal-action">
-          <a id="buy-product-${_product.id} "href="#" class="btn btn-success">Buy</a>
+          <a id="buy-product-${_id} "href="#" class="btn btn-success">Buy</a>
           <a href="#" class="btn btn-outline">Cancel</a>
         </div>
       </div>
@@ -157,6 +151,29 @@ const productTemplate = (_product) => {
   </div>
 `;
 };
+
+document.querySelector("#marketplace").addEventListener("click", (event) => {
+  if (event.target.className.includes("btn-success")) {
+    const btnBuy = event.target.id.split("-");
+    const id = Number.parseInt(btnBuy[2]);
+
+    const inputQty = Number.parseInt(
+      document.querySelector(`#product-qty-${id}`).value
+    );
+
+    const qty =
+      inputQty < 1 || inputQty > 10 ? "error" : Number.parseInt(inputQty);
+
+    if (qty !== "error") {
+      products[id].sold += qty;
+      notification(`Processing your ${qty} of ${products[id].name}`);
+    } else {
+      notification("An error occured");
+    }
+
+    renderDrinks();
+  }
+});
 
 window.addEventListener("load", () => {
   notification("Initializing....");
