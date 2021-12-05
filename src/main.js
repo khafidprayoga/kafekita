@@ -75,6 +75,9 @@ const getBalance = () => {
 const getTX = () => {
   document.querySelector("#user-tx").textContent = 1;
 };
+const notification = (_msg) => {
+  document.querySelector("#notification").textContent = _msg;
+};
 const renderDrinks = () => {
   document.querySelector("#marketplace").innerHTML = "";
   products.forEach((_product) => {
@@ -133,10 +136,10 @@ const productTemplate = (_product) => {
     <p>${_product.description}</p>
   </div>
   <div class="card-action">
-    <a href="#my-modal" class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
+    <a href="#product-${_product.id}" class="btn btn-md btn-outline rounded-sm mx-10 mb-10">
       Buy
     </a>
-    <div id="my-modal" class="modal">
+    <div id="product-${_product.id}" class="modal">
       <div class="modal-box">
         <div class="form-control">
           <input
@@ -146,7 +149,7 @@ const productTemplate = (_product) => {
           />
         </div>
         <div class="modal-action">
-          <a href="#" class="btn btn-success">Buy</a>
+          <a id="buy-product-${_product.id} "href="#" class="btn btn-success">Buy</a>
           <a href="#" class="btn btn-outline">Cancel</a>
         </div>
       </div>
@@ -156,6 +159,7 @@ const productTemplate = (_product) => {
 };
 
 window.addEventListener("load", () => {
+  notification("Initializing....");
   getBalance();
   getTX();
   renderDrinks();
