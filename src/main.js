@@ -1,5 +1,6 @@
 import "./tailwind.css";
 import "ethereum-blockies/blockies";
+import "lazysizes";
 
 const products = [
   {
@@ -122,8 +123,9 @@ const productTemplate = (_product) => {
   </div>
   <figure>
     <img
-      class="w-full object-center object-cover h-[350px] bg-gray-300"
-      src="${_product.imageURL}"
+      class="lazyload w-full object-center object-cover h-[350px] bg-gray-300"
+      data-sizes="auto"
+      data-srcset="${_product.imageURL}"
     />
   </figure>
   <div class="card-body">
