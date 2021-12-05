@@ -19,7 +19,6 @@
     "@celo/contractkit": "^1.4.0",
     "bignumber.js": "^9.0.1",
     "daisyui": "^1.16.2",
-    "ethereum-blockies": "^0.1.1",
-    "web3": "^1.6.1"
+    "ethereum-blockies": "^0.1.1"
   }
 }
