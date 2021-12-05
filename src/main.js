@@ -118,11 +118,11 @@ const productTemplate = (_product) => {
       h-15
     "
   >
-    <h5>$${_product.price}</h5>
+    <h5 class="font-semibold">$${_product.price}</h5>
   </div>
   <figure>
     <img
-      class="w-full object-center object-cover h-[350px]"
+      class="w-full object-center object-cover h-[350px] bg-gray-300"
       src="${_product.imageURL}"
     />
   </figure>
