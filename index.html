@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="flex-none hidden sm:block">
-        <button class="btn btn-md rounded-full">Connect</button>
+        <button class="btn btn-md rounded-full" id="connect">Connect</button>
       </div>
       <div class="flex-none mr-10 ml-5 hidden sm:block">
         <div class="avatar">
@@ -44,7 +44,21 @@
       </div>
     </div>
     <!--/ Navbar /-->
-    <div class="flex alert rounded-xl w-/5 mx-5 my-5 shadow-lg drop-shadow-lg">
+    <div
+      class="
+        sticky
+        top-0
+        z-50
+        flex
+        alert
+        rounded-xl
+        w-/5
+        mx-5
+        my-5
+        shadow-lg
+        drop-shadow-lg
+      "
+    >
       <div class="flex-shrink-0">
         <svg
           width="20px"
@@ -78,6 +92,5 @@
     </div>
 
     <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/src/avatar.js"></script>
   </body>
 </html>
