@@ -54,7 +54,7 @@ const approve = async (_price) => {
 };
 
 const notification = (_msg) => {
-  document.querySelector("#notification").textContent = _msg;
+  document.querySelector("#notification").textContent = _msg.substring(0, 101);
 };
 
 const getTX = async () => {
