@@ -1,15 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
-import "./cUSDInterface.sol";
+import "./Interfaces.sol";
 
 contract KafeKita {
-    address internal cUSDTokenAddress =
-        0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
+
+    address internal cUSDTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
     cUSDInterface cUSD = cUSDInterface(cUSDTokenAddress);
     uint256 internal totalDrinks = 0;
+    uint256 maxProductPrice;
+    address internal canteenOwner;
+
+     // set owner when contract is deployed
+    constructor(){
+        canteenOwner = msg.sender;
+        uint cusdOffset = 1000000000000000000;
+        maxProductPrice = 5 * cusdOffset;
+    }
+    
+    using SafeMath for uint256;
 
     struct Drink {
-        address payable owner;
         string name;
         string imageURL;
         string description;
@@ -22,22 +32,33 @@ contract KafeKita {
     event itemAdded(uint256 _productId, string _name);
     event newUserTX(address _user, uint256 _productId);
 
+
+    modifier onlyOwner() {
+        // gives access to only the owner of the contract owner
+        require(msg.sender == canteenOwner);
+        _;
+    }
+
+     function changeMaxProductPrice(uint price) external onlyOwner {
+        /*allows the owner of the contract to modify the max cusd set*/
+    
+        maxProductPrice = price;
+    }
+
     function addItem(
         string memory _name,
         string memory _imageURL,
         string memory _description,
         uint256 _price
-    ) public {
-        // TODO: only contract/canteen owner can add a new product
-        uint256 _maxProductPrice = 5000000000000000000;
+    ) public onlyOwner {
+        // only canteen owner is now able to add an item
         require(
-            _price <= _maxProductPrice,
-            "Price must be lower than or equal to $5 cUSD"
+            _price <= maxProductPrice,
+            "Price must be lower than or equal to the set max cUSD"
         );
 
         uint256 _sold = 0;
         drinks[totalDrinks] = Drink(
-            payable(msg.sender),
             _name,
             _imageURL,
             _description,
@@ -46,27 +67,24 @@ contract KafeKita {
         );
         emit itemAdded(totalDrinks, _name);
         // after drink inserted to array, we must add total drinks length
-        totalDrinks++;
+        totalDrinks.add(1);
     }
 
     function buyItem(uint256 _id, uint256 _qty) public payable {
-        address drinkOwner = drinks[_id].owner;
 
-        require(
-            keccak256(abi.encodePacked(msg.sender)) !=
-                keccak256(abi.encodePacked(drinkOwner)),
+        require( msg.sender != canteenOwner,
             "Owner can not buy product minted byself."
         );
 
         require(
-            cUSD.transferFrom(msg.sender, drinkOwner, drinks[_id].price * _qty),
+            cUSD.transferFrom(msg.sender, payable(canteenOwner), drinks[_id].price.mul(_qty)),
             "Transfer failed."
         );
 
         // add new TX for each transactions
-        totalTX[msg.sender]++;
+        totalTX[msg.sender].add(1);
         // increment drinks bought by user
-        drinks[_id].sold += _qty;
+        drinks[_id].sold.add(_qty);
         emit newUserTX(msg.sender, _id);
     }
 
@@ -74,7 +92,6 @@ contract KafeKita {
         public
         view
         returns (
-            address payable,
             string memory,
             string memory,
             string memory,
@@ -85,7 +102,6 @@ contract KafeKita {
         Drink memory drink = drinks[_id];
 
         return (
-            drink.owner,
             drink.name,
             drink.imageURL,
             drink.description,
