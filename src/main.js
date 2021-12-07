@@ -3,12 +3,12 @@ import { newKitFromWeb3 } from "@celo/contractkit";
 import "ethereum-blockies/blockies.min.js";
 import "lazysizes";
 import { productTemplate } from "./templates/product";
-import BigNumber from "bignumber.js";
 import kafekitaAbi from "../contracts/KafeKita.abi.json";
+import BigNumber from "bignumber.js";
 import cUSDAbi from "../contracts/cUSDInterface.abi.json";
 
 const ERC20_DECIMALS = 18;
-const KafeKitaAddress = "0xa3b48a85DE80D87A014514ac393d3E9f489732CE";
+const KafeKitaAddress = "0xA249816f3ecf2E8aba96Fb0Bc12CEc9731FAc3d8";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 let kit;

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
-import './cUSDInterface.sol';
+import "./cUSDInterface.sol";
 
 contract KafeKita {
     address internal cUSDTokenAddress =
@@ -32,7 +32,7 @@ contract KafeKita {
         uint256 _maxProductPrice = 5000000000000000000;
         require(
             _price <= _maxProductPrice,
-            'Price must be lower than or equal to $5 cUSD'
+            "Price must be lower than or equal to $5 cUSD"
         );
 
         uint256 _sold = 0;
@@ -55,16 +55,18 @@ contract KafeKita {
         require(
             keccak256(abi.encodePacked(msg.sender)) !=
                 keccak256(abi.encodePacked(drinkOwner)),
-            'Owner can not buy product minted byself.'
+            "Owner can not buy product minted byself."
         );
 
         require(
             cUSD.transferFrom(msg.sender, drinkOwner, drinks[_id].price * _qty),
-            'Transfer failed.'
+            "Transfer failed."
         );
 
         // add new TX for each transactions
         totalTX[msg.sender]++;
+        // increment drinks bought by user
+        drinks[_id].sold += _qty;
         emit newUserTX(msg.sender, _id);
     }
 
