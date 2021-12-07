@@ -19,3 +19,6 @@ if you are interested in the web design you can go to the **front-end** branch.
 1. Clone this repo
 2. Install dependency `npm install` or `yarn`
 3. Run local dev `npm run dev` or `yarn dev`
+
+### Note
+Use Chromium based web browser for best experience.
