@@ -44,10 +44,23 @@ const getCUSDBalance = async () => {
   document.querySelector("#balance").textContent = cUSDBalance;
 };
 
+const approve = async (_price) => {
+  const cUSDContract = new kit.web3.eth.Contract(cUSDAbi, cUSDContractAddress);
+  const bill = await cUSDContract.methods
+    .approve(KafeKitaAddress, String(_price))
+    .send({ from: kit.defaultAccount });
+
+  return bill;
+};
+
 const notification = (_msg) => {
   document.querySelector("#notification").textContent = _msg;
 };
 
+const getTX = async () => {
+  const totalTX = await contract.methods.getAllTX().call();
+  document.querySelector("#user-tx").textContent = totalTX;
+};
 const createUserProfile = (
   _address = "0x0000000000000000000000000000000000000000"
 ) => {
@@ -61,6 +74,7 @@ const createUserProfile = (
   const parentProfile = document.querySelector("#avatar-container");
   parentProfile.appendChild(icon);
 };
+
 const getProducts = async () => {
   const _productsLength = await contract.methods.getTotalDrinks().call();
   const _products = [];
@@ -82,6 +96,7 @@ const getProducts = async () => {
   products = await Promise.all(_products);
   renderDrinks();
 };
+
 const renderDrinks = () => {
   document.querySelector("#marketplace").innerHTML = "";
   products.forEach((_product, index) => {
@@ -95,4 +110,47 @@ window.addEventListener("load", async () => {
   await connectCeloWallet();
   await getCUSDBalance();
   await getProducts();
+  await getTX();
 });
+
+document
+  .querySelector("#marketplace")
+  .addEventListener("click", async (event) => {
+    if (event.target.className.includes("btn-success")) {
+      const btnBuy = event.target.id.split("-");
+      const id = Number.parseInt(btnBuy[2]);
+
+      const inputQty = Number.parseInt(
+        document.querySelector(`#product-qty-${id}`).value
+      );
+
+      const qty =
+        inputQty < 1 || inputQty > 10 ? "error" : Number.parseInt(inputQty);
+
+      notification("Waiting for payment approval...");
+      if (qty !== "error") {
+        try {
+          await approve(products[id].price * qty);
+          notification(`Awaiting payment for "${products[id].name}"...`);
+        } catch (err) {
+          notification(`ApproveError: ${err}`);
+        }
+
+        try {
+          const result = await contract.methods
+            .buyItem(id, qty)
+            .send({ from: kit.defaultAccount });
+          if (result) {
+            notification(`Processing tx "${products[id].name}" ${qty} item...`);
+            await getCUSDBalance();
+            await getTX();
+            await getProducts();
+          }
+        } catch (err) {
+          notification(`Err ${err}`);
+        }
+      } else {
+        notification("An error occured");
+      }
+    }
+  });
