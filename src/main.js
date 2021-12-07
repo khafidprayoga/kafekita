@@ -31,7 +31,7 @@ const connectCeloWallet = async () => {
       createUserProfile(kit.defaultAccount);
       notification("Connected");
     } catch (error) {
-      notification(`Error: ${error}.`);
+      notification(`${error}.`);
     }
   } else {
     notification("Please install the CeloExtensionWallet.");
@@ -133,7 +133,7 @@ document
           await approve(products[id].price * qty);
           notification(`Awaiting payment for "${products[id].name}"...`);
         } catch (err) {
-          notification(`ApproveError: ${err}`);
+          notification(`${err}`);
         }
 
         try {
@@ -147,7 +147,7 @@ document
             await getProducts();
           }
         } catch (err) {
-          notification(`Err ${err}`);
+          notification(`${err}`);
         }
       } else {
         notification("An error occured");
