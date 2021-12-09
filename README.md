@@ -20,6 +20,10 @@ if you are interested in the web design you can go to the **front-end** branch.
 2. Install dependency `npm install` or `yarn`
 3. Run local dev `npm run dev` or `yarn dev`
 
+## Live Demo
+
+https://gracious-booth-2f55a6.netlify.app/#
+
 ### Image Adapter
 Storage Adapter (Hapi.js) => [this repo](https://github.com/khafidprayoga/kafekita-storage-adapter).  
 if you are interested in this adapter, you can deploy it on 
